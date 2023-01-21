@@ -2,27 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using PathCreation;
-using TMPro;
 
 public class GameManager : MonoBehaviour
 {
 
-    [Header("About Player")]
-    public Transform playerObject;
+
+    [Header("Player")]
+    public Transform playerReference;
     public float playerMoveSpeed;
-    public TextMeshProUGUI playerTopCount;
-    public GameObject playerTopCanvas;
 
     [Header("Path Creator")]
     public PathCreator pathCreator;
 
-    [Header("Prefabs")]
-    public GameObject breadPrefab;
+    [Header("Zone Refecences")]
+    public GameObject bakeryReference;
+    public GameObject takingReference;
+    public GameObject storeReference;
 
-    [Header("References")]
-    public GameObject firin;
+    [Header("Prefeabs")]
+    public GameObject bread;
 
-    [Header("Collected")]
+    [Header("Collected List")]
     public List<GameObject> collectedList = new List<GameObject>();
+
 
 }

@@ -5,9 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - GameManager
-  - HamurCircle
-  - TakeCircle
-  - BakeCircle
+  - TakingCircle
+  - CollectCircle
   layers:
   - Default
   - TransparentFX

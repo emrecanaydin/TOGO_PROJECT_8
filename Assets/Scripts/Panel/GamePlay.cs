@@ -5,27 +5,28 @@ using PathCreation;
 
 public class GamePlay : MonoBehaviour
 {
-    public PathCreator pathCreator;
-    public Transform player;
-    public float moveSpeed = 5;
-    float distanceTravelled;
 
+    public float distanceTravelled;
+
+    GameManager GM;
     Animator playerAnimator;
 
     private void Start()
     {
-        playerAnimator = player.GetComponent<Animator>();
+        GM = GameObject.FindGameObjectWithTag("GameManager").gameObject.GetComponent<GameManager>();
+        playerAnimator = GM.playerObject.GetComponent<Animator>();
     }
 
     private void Update()
     {
         if (Input.GetMouseButton(0))
         {
-            distanceTravelled += moveSpeed * Time.deltaTime;
-            player.transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled);
-            player.transform.rotation = pathCreator.path.GetRotationAtDistance(distanceTravelled);
+            distanceTravelled += GM.playerMoveSpeed * Time.deltaTime;
+            GM.playerObject.transform.position = GM.pathCreator.path.GetPointAtDistance(distanceTravelled);
+            GM.playerObject.transform.rotation = GM.pathCreator.path.GetRotationAtDistance(distanceTravelled);
             playerAnimator.SetBool("isWalking", true);
-        } else
+        }
+        else
         {
             playerAnimator.SetBool("isWalking", false);
         }

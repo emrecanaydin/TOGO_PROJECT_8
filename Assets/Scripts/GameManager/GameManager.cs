@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using PathCreation;
 using TMPro;
 
@@ -16,25 +15,15 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI playerTopText;
     public float selledBreadCount;
 
-    [Header("Taking")]
-    public Image takingFillImage;
-
     [Header("Path Creator")]
     public PathCreator pathCreator;
+    public PathCreator customerPathCreator;
 
-    [Header("Panel")]
-    public TextMeshProUGUI profitText;
-
-    [Header("Zone Refecences")]
-    public GameObject takingReference;
-    public GameObject bakedReference;
-    public GameObject storeReference;
-
-    [Header("Prefeabs")]
-    public GameObject bread;
-
-    [Header("Collected List")]
-    public List<GameObject> collectedList = new List<GameObject>();
-
+    [Header("List")]
+    public List<GameObject> supplyList = new List<GameObject>();
+    public List<GameObject> cookingList = new List<GameObject>();
+    public List<GameObject> cookedList = new List<GameObject>();
+    public List<GameObject> takedList = new List<GameObject>();
+    public List<GameObject> inStoreList = new List<GameObject>();
 
 }

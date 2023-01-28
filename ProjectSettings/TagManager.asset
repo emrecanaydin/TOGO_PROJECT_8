@@ -6,11 +6,18 @@ TagManager:
   tags:
   - GameManager
   - TakingCircle
-  - CollectCircle
   - BakeCircle
   - TakeCircle
   - HamurCircle
   - StoreCircle
+  - SupplyController
+  - SupplyCircle
+  - BakeryController
+  - StoreController
+  - Customer
+  - UIManager
+  - CustomerPathMiddle
+  - CustomerPathFinish
   layers:
   - Default
   - TransparentFX

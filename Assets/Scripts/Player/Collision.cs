@@ -81,7 +81,7 @@ public class Collision : MonoBehaviour
                 supplyController.ResetSquareImage();
                 GameObject supply = supplyController.GenerateSupply();
                 supply.transform.parent = trey;
-                supply.transform.position = new Vector3(trey.transform.position.x, (trey.transform.position.y + .15f * GM.supplyList.Count), trey.transform.position.z);
+                supply.transform.DOMove(new Vector3(trey.transform.position.x, (trey.transform.position.y + .30f * GM.supplyList.Count), trey.transform.position.z), .1f);
                 supply.transform.localRotation = Quaternion.Euler(0, 0, 0);
                 GM.supplyList.Add(supply);
                 UI.UpdatePlayerTopText();
@@ -127,15 +127,17 @@ public class Collision : MonoBehaviour
     {
         if (GM.cookedList.Count > 0)
         {
-            int index = 0;
-            foreach (var cooked in GM.cookedList)
+            for (int index = GM.cookedList.Count - 1; index >= 0; index--)
             {
-                cooked.transform.parent = trey;
-                cooked.transform.position = new Vector3(trey.transform.position.x, trey.transform.position.y + 0.15f * GM.takedList.Count, trey.transform.position.z);
-                GM.takedList.Add(cooked);
-                index = index + 1;
+                if (GM.takedList.Count < 5)
+                {
+                    GameObject cooked = GM.cookedList[index];
+                    cooked.transform.parent = trey;
+                    cooked.transform.DOMove(new Vector3(trey.transform.position.x, trey.transform.position.y + 0.15f * GM.takedList.Count, trey.transform.position.z), 0.015f);
+                    GM.takedList.Add(cooked);
+                }
             }
-            GM.cookedList.RemoveRange(0, index);
+            GM.cookedList.RemoveRange(GM.cookedList.Count - GM.takedList.Count, GM.takedList.Count);
         }
     }
 
